@@ -37,6 +37,8 @@ const { Meta } = Card;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
+const URL = process.env.REACT_APP_URL;
+
 class App extends Component {
 
   constructor(props) {
@@ -79,7 +81,7 @@ class App extends Component {
       submitted: false
     })
 
-    axios.post(`http://localhost:5000/r`, {params})
+    axios.post(URL, {params})
       .then(res => {
         if (res.data.businesses.length > 0){
           let last_location_line = res.data.businesses[0].location.display_address.length - 1
@@ -121,7 +123,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-  document.title = 'Foodz'
+  document.title = 'foodz'
 
   navigator.geolocation.getCurrentPosition(position => {
     this.setState({ lat: position.coords.latitude, lon: position.coords.longitude });
