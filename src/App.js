@@ -183,27 +183,30 @@ class App extends Component {
                   <h2>No matching entries were found.</h2>
                 </div>
               :
-                <Row gutter={10} style={{height: '100%'}}>
-                  <Col span={9} style={{height: '100%'}}>
-                    <img style={{height: 200, width: 200, borderRadius: 10}} object-fit='cover' src={this.state.img_url} />
-                  </Col>
-                  <Col span={15} style={{paddingLeft:20, paddingTop:5}}>
-                    {this.state.name.length < 30 ?
-                      <h2 style={{marginBottom:7}}>{this.state.name}</h2>
-                    :
-                      <h3 style={{marginBottom:7}}>{this.state.name}</h3>
-                    }
-                    <p style={{marginBottom:7}}>{this.state.category} &nbsp;&bull;&nbsp; {this.state.price_pt}</p>
-                    <p style={{marginBottom:0}}>{this.state.address}</p>
-                    <p style={{marginBottom:7}}>{this.state.address2}</p>
-                    <img src={starsArr[2*this.state.stars]} style={{height:'24px'}}/>
-                    <p style={{marginBottom:0}}>Based on {this.state.num_reviews} reviews</p>
-                  </Col>
-                </Row>
+                <>
+                  <Row gutter={10} style={{height: '100%'}}>
+                    <Col span={9} style={{height: '100%'}}>
+                      <img style={{height: 200, width: 200, borderRadius: 10}} object-fit='cover' src={this.state.img_url} />
+                    </Col>
+                    <Col span={15} style={{paddingLeft:20, paddingTop:5}}>
+                      {this.state.name.length < 30 ?
+                        <h2 style={{marginBottom:7}}>{this.state.name}</h2>
+                      :
+                        <h3 style={{marginBottom:7}}>{this.state.name}</h3>
+                      }
+                      <p style={{marginBottom:7}}>{this.state.category} &nbsp;&bull;&nbsp; {this.state.price_pt}</p>
+                      <p style={{marginBottom:0}}>{this.state.address}</p>
+                      <p style={{marginBottom:7}}>{this.state.address2}</p>
+                      <img src={starsArr[2*this.state.stars]} style={{height:'24px'}}/>
+                      <p style={{marginBottom:0}}>Based on {this.state.num_reviews} reviews</p>
+                    </Col>
+                  </Row>
+
+                  <div style={{textAlign: 'right', position: 'absolute', right:0, bottom:0}}>
+                    <a href={this.state.yelp_link} target='_blank'><img src={yelp} style={{height:'60px'}} /></a>
+                  </div>
+                </>
               }
-              <div style={{textAlign: 'right', position: 'absolute', right:0, bottom:0}}>
-                <a href={this.state.yelp_link} target='_blank'><img src={yelp} style={{height:'60px'}} /></a>
-              </div>
             </Card>
           </div>
         }
